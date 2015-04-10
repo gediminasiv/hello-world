@@ -38,24 +38,27 @@
 		while($row=mysqli_fetch_array($run))
 		{  
 		$user_id = array();
+		$user_name = array();
+		$user_email = array();
+		$user_pass = array();
 		$i = 1;
-			$user_name=$row[0];  
-			$user_email=$row[1];  
-			$user_pass=$row[2];  
+			$user_name[$i]=$row[0];  
+			$user_email[$i]=$row[1];  
+			$user_pass[$i]=$row[2];  
 			$user_id[$i]=$row[3];
   
   
 		?>  
   
 		<tr>  
-			<td><?php echo $user_name;  ?></td>  
-			<td><?php echo $user_email;  ?></td>  
-			<td><?php echo $user_pass;  ?></td>
+			<td><?php echo $user_name[$i];  ?></td>  
+			<td><?php echo $user_email[$i];  ?></td>  
+			<td><?php echo $user_pass[$i];  ?></td>
 			<td><?php echo $user_id[$i];  ?></td>
 			<td>
 			<form method="post">
-				<button type="submit" class="btn btn-info" name="userid" value="$user_id[$i]"> <span class="glyphicon glyphicon-pencil" aria-label="Edit"></span></button>
-				<a href="remove.php" data-toggle="modal" data-target="#removeModal"><button type="button" class="remove btn btn-danger"><span class="glyphicon glyphicon-remove" aria-label="Remove"></span></button></a>
+				<a href="edit.php" data-toggle="modal" data-target="#editModal"><button type="button" class="edit btn btn-info"><span class="glyphicon glyphicon-pencil" aria-label="Edit"></span></button></a>
+				<button type="submit" class="btn btn-danger" name="userid" value="<?=$user_id[$i]?>"> <span class="glyphicon glyphicon-remove" aria-label="Remove"></span></button>
 			</form>
 			</td>
 		</tr>  
@@ -75,7 +78,13 @@
 	</div> 
 	</div>
 	</div>
-	
+	<div id="editModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
 </body>  
   
 </html>  
