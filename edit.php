@@ -43,11 +43,10 @@
 		</div> 
 </div>
 	</div>
-	<div class="modal-footer">
 			<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary rem" data-dismiss="modal" name="userid" value="<?=$user_id[$i]?>">Save changes</button>
+			<button type="submit" class="btn btn-primary rem" name="userid" value="<?=$user_id[$i]?>">Save changes</button>
 			</form>
-	</div>
+	
 	<?php
 		
 		$link = mysqli_connect("mysql1.000webhost.com","a8715883_turbo","Qwe357", "a8715883_users");
