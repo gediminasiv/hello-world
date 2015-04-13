@@ -40,22 +40,24 @@
 				<input class="form-control" type="password" name="password" placeholder="Password"  />
 			</div>
 		
-		</div> 
-</div>
-	</div>
-			<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-			<button type="submit" class="btn btn-primary rem" name="userid" value="<?=$user_id[$i]?>">Save changes</button>
-			</form>
-	
-	<?php
 		
-		$link = mysqli_connect("mysql1.000webhost.com","a8715883_turbo","Qwe357", "a8715883_users");
-		$sql="UPDATE user SET name='".$_POST['name']."' WHERE id=".$_POST['selectId'];
-		$res=mysqli_query($link,$sql);
-		$sql="UPDATE user SET email='".$_POST['email']."' WHERE id=".$_POST['selectId'];
-		$res=mysqli_query($link,$sql);
-		$sql="UPDATE user SET password='".$_POST['password']."' WHERE id=".$_POST['selectId'];
-		$res=mysqli_query($link,$sql);
+	
+			<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			<button type="submit" class="btn btn-primary rem" name="userid" value="stuff">Save changes</button>
+			</form>
+			</div> 
+		</div>
+	</div>
+	<?php
+		if(isset($_POST['userid']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])){
+			$link = mysqli_connect("mysql1.000webhost.com","a8715883_turbo","Qwe357", "a8715883_users");
+			$sql="UPDATE user SET name='".$_POST['name']."' WHERE id=".$_POST['selectId'];
+			$res=mysqli_query($link,$sql);
+			$sql="UPDATE user SET email='".$_POST['email']."' WHERE id=".$_POST['selectId'];
+			$res=mysqli_query($link,$sql);
+			$sql="UPDATE user SET password='".$_POST['password']."' WHERE id=".$_POST['selectId'];
+			$res=mysqli_query($link,$sql);
+		}
 	?>
 	
 </div>
